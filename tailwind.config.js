@@ -13,6 +13,7 @@ export default {
         "wild-sand": "#F4F4F4",
         silver: "#CCCCCC",
         salem: "#087B2F",
+        geyser: "#D4D9E4",
       },
     },
   },

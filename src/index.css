@@ -6,7 +6,7 @@
   html {
     font-family: 'Poppins', sans-serif;
 
-    font-size: calc(100vw * 16 / 1512);
+    font-size: calc(100vw / 94.5);
 
     @media only screen and (max-width: 767px) {
       font-size: calc(100vw * 16 / 767);

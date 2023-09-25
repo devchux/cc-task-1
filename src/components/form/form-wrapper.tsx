@@ -1,17 +1,19 @@
 import { FC, ReactNode, useState } from "react";
-import AddQuestion from "./add-question";
+import AddQuestion, { IAddQuestionState } from "./add-question";
 import Button from "../buttons/button";
 
 interface FormWrapperProps {
   title: string;
   children?: ReactNode;
   hideAddButton?: boolean;
+  onSave?: (value: IAddQuestionState) => void;
 }
 
 const FormWrapper: FC<FormWrapperProps> = ({
   title,
   children,
   hideAddButton,
+  onSave,
 }) => {
   const [showAddQuestion, setShowAddQuestion] = useState<boolean>(false);
 
@@ -23,10 +25,20 @@ const FormWrapper: FC<FormWrapperProps> = ({
       <div className="px-7 pt-12 pb-8 bg-white shadow-[3px_3px_14px_0px_rgba(190,190,190,0.30)] rounded-bl-[1.25rem] rounded-br-[1.25rem]">
         {children}
         {showAddQuestion && (
-          <AddQuestion onDelete={() => setShowAddQuestion(false)} />
+          <AddQuestion
+            onDelete={() => setShowAddQuestion(false)}
+            onSave={(value) => {
+              onSave?.(value);
+              setShowAddQuestion(false);
+            }}
+          />
         )}
         {!hideAddButton && (
-          <Button variant="text" onClick={() => setShowAddQuestion(true)}>
+          <Button
+            variant="text"
+            className="mt-7"
+            onClick={() => setShowAddQuestion(true)}
+          >
             Add a question
           </Button>
         )}

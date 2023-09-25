@@ -1,23 +1,22 @@
 import { FC, useState } from "react";
 import penIcon from "../../assets/pen.svg";
-import { DropdownValue } from "../inputs/dropdown";
 import AddQuestion, { IAddQuestionState } from "./add-question";
 
 const SavedMode: FC<{
-  type: DropdownValue;
-  title: string;
+  question: IAddQuestionState;
   underline?: boolean;
   onSave?: (value?: IAddQuestionState) => void;
-}> = ({ type, title, onSave, underline = true }) => {
+  onDelete?: () => void;
+}> = ({ question, onSave, onDelete, underline = true }) => {
   const [showAddQuestion, setShowAddQuestion] = useState<boolean>(false);
 
   return (
     <div>
       <small className="text-sm font-medium text-dusty-gray">
-        {type.title}
+        {question.type.title}
       </small>
       <div className="flex items-center justify-between">
-        <p className="font-semibold max-w-[27.44rem] w-full text-xl">{title}</p>
+        <p className="font-semibold max-w-[27.44rem] w-full text-xl">{question.question}</p>
         <button type="button" onClick={() => setShowAddQuestion(true)}>
           <img src={penIcon} alt="" />
         </button>
@@ -25,12 +24,18 @@ const SavedMode: FC<{
       {showAddQuestion && (
         <AddQuestion
           isEdit
-          defaultState={{ type, question: title }}
-          onDelete={() => setShowAddQuestion(false)}
-          onSave={onSave}
+          defaultState={question}
+          onDelete={() => {
+            setShowAddQuestion(false);
+            onDelete?.();
+          }}
+          onSave={(value) => {
+            onSave?.(value)
+            setShowAddQuestion(false);
+          }}
         />
       )}
-      {underline && <hr className="mt-7" />}
+      {underline && <hr className="my-7" />}
     </div>
   );
 };

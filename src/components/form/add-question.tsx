@@ -11,7 +11,7 @@ export interface IAddQuestionState {
   question: string;
   choices?: string[];
   maxChoice?: number;
-  enableOther?: boolean;
+  other?: boolean;
   disqualify?: boolean;
   info?: string;
   duration?: number | string;
@@ -19,7 +19,7 @@ export interface IAddQuestionState {
 }
 
 interface AddQuestionProps {
-  onSave?: (value?: IAddQuestionState) => void;
+  onSave?: (value: IAddQuestionState) => void;
   onDelete?: () => void;
   defaultState?: IAddQuestionState;
   isEdit?: boolean;
@@ -37,7 +37,7 @@ const AddQuestion: FC<AddQuestionProps> = ({
     duration: "",
     choices: [""],
     maxChoice: 0,
-    enableOther: false,
+    other: false,
     disqualify: false,
     videoUnit: {
       value: "",
@@ -143,8 +143,8 @@ const AddQuestion: FC<AddQuestionProps> = ({
           </div>
           <div className="mb-7">
             <Checkbox
-              checked={state.enableOther}
-              toggle={() => setState({ enableOther: !state.enableOther })}
+              checked={state.other}
+              toggle={() => setState({ other: !state.other })}
               label="Enable “Other” option"
             />
           </div>
@@ -165,8 +165,8 @@ const AddQuestion: FC<AddQuestionProps> = ({
       {state.type.value === "Yes/No" && (
         <div className="mb-7">
           <Checkbox
-            checked={state.enableOther}
-            toggle={() => setState({ enableOther: !state.enableOther })}
+            checked={state.other}
+            toggle={() => setState({ other: !state.other })}
             label="Disqualify candidate if the answer is no"
           />
         </div>

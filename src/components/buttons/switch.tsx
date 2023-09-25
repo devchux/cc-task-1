@@ -20,7 +20,7 @@ const Switch = ({
           }
         )}
       />
-      <small className="text-dove-gray text-[0.9375rem]">{isOpen ? "Hide" : "Show"}</small>
+      <small className="text-dove-gray text-[0.9375rem]">{isOpen ? "Show" : "Hide"}</small>
     </div>
   );
 };

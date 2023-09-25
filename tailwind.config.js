@@ -15,6 +15,7 @@ export default {
         salem: "#087B2F",
         geyser: "#D4D9E4",
         "dusty-gray": "#979797",
+        "medium-purple": "#9C4DE2",
       },
     },
   },

@@ -12,7 +12,7 @@ const Input: FC<InputProps> = ({ className, ...rest }) => {
     <input
       {...rest}
       className={cn(
-        "border border-black rounded-md h-16 py-[1.44rem] px-[1.6rem] text-sm placeholder:text-dusty-gray w-full block focus:outline-salem",
+        "border-none outline outline-silver-chalice rounded-md h-16 py-[1.44rem] px-[1.6rem] text-sm placeholder:text-dusty-gray w-full block focus-visible:outline-salem focus-visible:outline-[2px] hover:outline-black",
         className
       )}
     />

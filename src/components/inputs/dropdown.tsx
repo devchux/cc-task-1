@@ -1,7 +1,7 @@
 import { FC, MutableRefObject, useEffect, useRef, useState } from "react";
 import { cn } from "../../util/lib";
 
-interface DropdownValue {
+export interface DropdownValue {
   title: string;
   value: string;
 }
@@ -10,24 +10,29 @@ interface DropdownProps {
   value: DropdownValue;
   options: DropdownValue[];
   onSelect?: (value: DropdownValue) => void;
+  placeholder?: string;
 }
 
-const Dropdown: FC<DropdownProps> = ({ value, options, onSelect }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const ref: MutableRefObject<null | HTMLDivElement> = useRef(null)
-
+const Dropdown: FC<DropdownProps> = ({
+  value,
+  options,
+  onSelect,
+  placeholder,
+}) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const ref: MutableRefObject<null | HTMLDivElement> = useRef(null);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClickOutside = (event: any) => {
     if (ref.current && !ref.current.contains(event.target)) {
-        setIsOpen(false);
+      setIsOpen(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener("click", handleClickOutside, true);
     return () => {
-      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener("click", handleClickOutside, true);
     };
   }, []);
 
@@ -35,12 +40,12 @@ const Dropdown: FC<DropdownProps> = ({ value, options, onSelect }) => {
     <div ref={ref} className="relative">
       <div
         className={cn(
-          "flex items-center justify-between py-[1.44rem] px-[1.63rem] rounded-md border border-black cursor-pointer",
-          { "border-salem": isOpen }
+          "flex items-center justify-between py-[1.44rem] px-[1.63rem] rounded-md outline outline-silver-chalice hover:outline-black cursor-pointer",
+          { "outline-salem outline-[2px]": isOpen }
         )}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <p className="text-dusty-gray text-sm">{value?.title}</p>
+        <p className="text-dusty-gray text-sm">{value?.title || placeholder}</p>
         <svg
           width="12"
           height="9"
@@ -54,7 +59,12 @@ const Dropdown: FC<DropdownProps> = ({ value, options, onSelect }) => {
           />
         </svg>
       </div>
-      <div className={cn("bg-white rounded-md shadow-[3px_3px_27px_0px_rgba(190,190,190,0.30)] py-[1.19rem] absolute top-12 w-full left-0 invisible opacity-0 transition-opacity duration-300", { "visible opacity-100": isOpen })}>
+      <div
+        className={cn(
+          "bg-white rounded-md shadow-[3px_3px_27px_0px_rgba(190,190,190,0.30)] py-[1.19rem] absolute top-12 w-full left-0 invisible opacity-0 transition-opacity duration-300",
+          { "visible opacity-100": isOpen }
+        )}
+      >
         {options.map((option) => (
           <div
             className={cn("px-6 h-11 flex items-center cursor-pointer", {

@@ -36,12 +36,12 @@ const Button: FC<ButtonProps> = ({
           <path
             d="M9.55684 9.42862L8.54321 8.42749L17.0039 16.7854L25.4645 25.1434"
             stroke="#A80000"
-            stroke-width="5"
+            strokeWidth="5"
           />
           <path
             d="M23.528 10.1184L24.53 9.10559L16.1651 17.5594L8.37698 25.3474"
             stroke="#A80000"
-            stroke-width="5"
+            strokeWidth="5"
           />
         </svg>
       )}
@@ -55,12 +55,12 @@ const Button: FC<ButtonProps> = ({
           <path
             d="M2.42465 11.9094L1 11.9182L12.8925 11.8456L24.7851 11.7729"
             stroke="black"
-            stroke-width="5"
+            strokeWidth="5"
           />
           <path
             d="M12.7915 2.51804L12.7838 1.09338L12.8466 12.986L12.8466 24"
             stroke="black"
-            stroke-width="5"
+            strokeWidth="5"
           />
         </svg>
       )}

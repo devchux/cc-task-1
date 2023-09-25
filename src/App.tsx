@@ -1,27 +1,25 @@
-import Button from "./components/buttons/button";
-import Switch from "./components/buttons/switch";
-import Checkbox from "./components/inputs/checkbox";
-import Choice from "./components/inputs/choice";
-import Dropdown from "./components/inputs/dropdown";
-import Input from "./components/inputs/input";
+import { useState } from "react";
+import FormWrapper from "./components/form/form-wrapper";
+import SavedMode from "./components/form/saved-mode";
+import UploadCoverImage from "./components/form/upload-cover-image";
 
 function App() {
+  const [preview, setPreview] = useState("");
   return (
     <>
-      <Switch />
-      <Checkbox label="Internal" />
-      <Input placeholder="Type here." />
-      <Button>Save</Button>
-      <Button variant="danger">Delete question</Button>
-      <Button variant="text">Add a question</Button>
-      <Choice placeholder="Type here." />
-      <Dropdown
-        value={{ title: "Paragraph", value: "Paragraph" }}
-        options={[
-          { title: "Paragraph", value: "Paragraph" },
-          { title: "Multiple Choice", value: "MultipleChoice" },
-        ]}
+      <UploadCoverImage
+        preview={preview}
+        removeImage={() => setPreview("")}
+        setPreview={(link) => setPreview(link)}
       />
+      <br />
+      <br />
+      <FormWrapper title="Additional questions">
+        <SavedMode
+          type={{ value: "Paragraph", title: "Paragraph" }}
+          title="Please tell me about yourself in less than 500 words"
+        />
+      </FormWrapper>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, InputHTMLAttributes } from "react";
 import { cn } from "../../util/lib";
 
-interface InputProps
+export interface InputProps
   extends DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement

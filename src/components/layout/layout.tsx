@@ -9,7 +9,7 @@ const Layout = () => {
 
   return (
     <div className="h-[100vh] flex">
-      <div className="w-28 h-full bg-white shadow-[0px_4px_23px_0px_rgba(0,0,0,0.05)] flex flex-col justify-between items-center p-12">
+      <div className="w-28 h-full z-50 bg-white shadow-[0px_4px_23px_0px_rgba(0,0,0,0.05)] flex flex-col justify-between items-center p-12">
         <div>
           <button>
             <img src={hamburgerIcon} alt="" />

@@ -21,10 +21,10 @@ const Layout = () => {
             <img src={noteIcon} alt="" />
           </NavLink>
         </div>
-        <div className="w-12 h-12 rounded-full text-white bg-persian-blue flex justify-center">CE</div>
+        <div className="w-12 h-12 rounded-full text-white bg-persian-blue flex justify-center items-center">CE</div>
       </div>
-      <div className="w-full h-full">
-        <div className="h-32 shadow-[0px_4px_23px_0px_rgba(0,0,0,0.05)]">
+      <div className="w-full h-full overflow-auto">
+        <div className="h-32 shadow-[0px_4px_23px_0px_rgba(0,0,0,0.05)] bg-white my-28 sticky top-0">
           <div className="flex h-full items-center">
             <NavLink
               className={cn(
@@ -79,7 +79,7 @@ const Layout = () => {
             </NavLink>
           </div>
         </div>
-        <div className="py-28 px-16 h-[calc(100vh-8rem)] overflow-auto">
+        <div className="pb-28 px-16">
           <Outlet />
         </div>
       </div>

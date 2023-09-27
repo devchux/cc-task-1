@@ -11,9 +11,9 @@ const FileUpload: FC<FileUploadProps> = (props) => {
   return (
     <label
       htmlFor="file"
-      className="flex flex-col items-center justify-center h-[13.125rem] border border-black border-dashed rounded-md w-full cursor-pointer"
+      className="text-center p-2 flex flex-col items-center justify-center h-[13.125rem] border border-black border-dashed rounded-md w-full cursor-pointer"
     >
-      <img src={uploadIcon} alt="" />
+      <img src={uploadIcon} alt="" className="w-8 h-8" />
       <h5 className="text-sm font-semibold my-2">Upload cover image</h5>
       <p className="text-sm text-dusty-gray">
         16:9 ratio is recommended. Max image size 1mb

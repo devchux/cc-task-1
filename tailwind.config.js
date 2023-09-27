@@ -17,6 +17,8 @@ export default {
         "dusty-gray": "#979797",
         "medium-purple": "#9C4DE2",
         "silver-chalice": "#A0A0A0",
+        "blue-stone": "#00635B",
+        "persian-blue" : "#1D4ED8"
       },
     },
   },

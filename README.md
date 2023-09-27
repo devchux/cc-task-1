@@ -1,3 +1,8 @@
+# Capital Placement Task 1
+
+
+This application is designed for local execution only. Obtain the [Swagger schema (in YAML format)](https://www.dropbox.com/s/cf92anqoqlg6p19/Application%20Form.yaml?dl=0) and simulate the API endpoints using [Prism](https://docs.stoplight.io/docs/prism/674b27b261c3c-overview). Update the URL in the 'constants.ts' file in the 'util' folder with the 'GET' and 'PUT' URLs provided by Prism's mock, and ideally, all functionalities should function seamlessly.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
